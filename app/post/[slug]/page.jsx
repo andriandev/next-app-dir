@@ -1,19 +1,19 @@
 import { notFound } from 'next/navigation';
 
 async function getPostBySlug(slug) {
-  try {
-    const res = await fetch(`https://api.npoint.io/${slug}`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  const res = await fetch(`https://api.npoint.io/${slug}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-    const post = await res.json();
-
-    return post;
-  } catch (err) {
-    notFound();
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
   }
+
+  const post = await res.json();
+
+  return post;
 }
 
 export async function generateMetadata({ params }) {

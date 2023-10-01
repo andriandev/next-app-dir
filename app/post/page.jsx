@@ -2,19 +2,19 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
 async function getPost() {
-  try {
-    const res = await fetch(`https://api.npoint.io/35120f653cfdc5070800`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  const res = await fetch(`https://api.npoint.io/35120f653cfdc5070800`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-    const post = await res.json();
-
-    return post;
-  } catch (err) {
-    notFound();
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
   }
+
+  const post = await res.json();
+
+  return post;
 }
 
 export async function generateMetadata() {
