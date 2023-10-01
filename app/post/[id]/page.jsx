@@ -1,11 +1,23 @@
 import { notFound } from 'next/navigation';
 
-async function getPostBySlug(slug) {
-  const res = await fetch(`https://api.npoint.io/${slug}`, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+// Generate static page on demand request
+export function generateStaticParams() {
+  return [];
+}
+
+async function getPostBySlug(id) {
+  const res = await fetch(
+    `https://my-json-server.typicode.com/harapanbangsa2023/json-server/posts/${id}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+
+  if (res.status === 404) {
+    notFound();
+  }
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -16,8 +28,9 @@ async function getPostBySlug(slug) {
   return post;
 }
 
+// Generate metadata seo in head tag
 export async function generateMetadata({ params }) {
-  const post = await getPostBySlug(params?.slug);
+  const post = await getPostBySlug(params?.id);
 
   if (!post) {
     notFound();
@@ -27,12 +40,12 @@ export async function generateMetadata({ params }) {
     title: post?.title,
     description: post?.content,
     alternates: {
-      canonical: `/post/${post?.slug}`,
+      canonical: `/post/${post?.id}`,
     },
     openGraph: {
       title: post?.title,
       description: post?.content,
-      url: `/post/${post?.slug}`,
+      url: `/post/${post?.id}`,
       images: post?.image,
       type: 'article',
     },
@@ -43,7 +56,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function DetailPost({ params }) {
-  const post = await getPostBySlug(params?.slug);
+  const post = await getPostBySlug(params?.id);
 
   if (!post) {
     notFound();

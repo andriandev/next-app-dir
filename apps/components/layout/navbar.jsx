@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/apps/components/shared/link';
 import { usePathname } from 'next/navigation';
 import navLink from '@/apps/config/nav-link';
 
