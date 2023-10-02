@@ -61,7 +61,12 @@ export default async function DetailPost({ params }) {
 
   return (
     <main>
-      <img src={post?.image} alt={post?.title} width={400} height={250} />
+      <img
+        src={post?.image}
+        className="img-fluid"
+        alt={post?.title}
+        width={500}
+      />
       <h1>{post?.title}</h1>
       <p>{post?.content}</p>
     </main>

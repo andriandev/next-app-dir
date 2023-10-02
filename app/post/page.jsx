@@ -53,8 +53,8 @@ export default async function DetailPost() {
       <div className="post-list">
         {postList.map((post) => (
           <Link href={`/post/${post?.id}`} key={post?.id}>
-            <div className="card">
-              <img src={post?.image} alt={post?.title} />
+            <div className="card h-100">
+              <img src={post?.image} className="img-fluid" alt={post?.title} />
               <h3>{post?.title}</h3>
             </div>
           </Link>
