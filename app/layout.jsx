@@ -40,9 +40,6 @@ export async function generateMetadata() {
       images: siteIcon,
       type: 'website',
     },
-    twitter: {
-      card: siteBaseUrl + siteIcon,
-    },
   };
 }
 

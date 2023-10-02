@@ -49,9 +49,6 @@ export async function generateMetadata({ params }) {
       images: post?.image,
       type: 'article',
     },
-    twitter: {
-      card: post?.image,
-    },
   };
 }
 
