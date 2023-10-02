@@ -12,7 +12,7 @@ main {
 footer {
   text-align: center;
   margin-top: auto;
-  padding: 2rem 0 0.5rem;
+  padding: 0.5rem 0;
 }
 
 a {
@@ -39,6 +39,13 @@ nav ul li {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem 0.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .post-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .post-list .card {

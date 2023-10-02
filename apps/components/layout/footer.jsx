@@ -1,9 +1,13 @@
 import { siteTitle } from '@/apps/config/setting';
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer>
-      <p>Copyright 2023 {siteTitle}</p>
+      <p>
+        Copyright {year} {siteTitle}
+      </p>
     </footer>
   );
 }

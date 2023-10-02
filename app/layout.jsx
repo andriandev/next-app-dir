@@ -45,7 +45,7 @@ export async function generateMetadata() {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id">
+    <html lang="en">
       <body className={customFonts.className}>
         <Header />
         {children}
