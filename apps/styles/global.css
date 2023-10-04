@@ -1,8 +1,17 @@
+:root {
+  --body-color: #dee2e6;
+  --body-background-color: #10202b;
+  --body-link: #3a94d4;
+  --body-link-hover: #367db0;
+}
+
 body {
   min-height: 100vh;
   margin: 0 0.5rem;
   display: flex;
   flex-direction: column;
+  color: var(--body-color);
+  background-color: var(--body-background-color);
 }
 
 main {
@@ -17,7 +26,12 @@ footer {
 
 a {
   text-decoration: none;
-  color: blue;
+  color: var(--body-link);
+}
+
+a:hover {
+  color: var(--body-link-hover);
+  font-weight: 600;
 }
 
 h1 {
@@ -25,7 +39,7 @@ h1 {
 }
 
 .active {
-  color: orangered;
+  color: #fff;
 }
 
 nav ul li {
@@ -33,6 +47,14 @@ nav ul li {
   margin: 0 0.5rem;
   font-size: 1rem;
   font-weight: 600;
+}
+
+nav ul li a {
+  color: hsla(0, 0%, 100%, 0.55);
+}
+
+nav ul li a:hover {
+  color: hsla(0, 0%, 100%, 0.75);
 }
 
 .post-list {
@@ -49,7 +71,7 @@ nav ul li {
 }
 
 .post-list .card {
-  border: 0.1rem solid #ccc;
+  border: 0.03rem solid hsla(0, 0%, 100%, 0.75);
   padding: 0.8rem;
   text-align: center;
 }

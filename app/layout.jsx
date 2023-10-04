@@ -2,6 +2,7 @@ import '@/apps/styles/global.css';
 import { Quicksand } from 'next/font/google';
 import Header from '@/apps/components/layout/header';
 import Footer from '@/apps/components/layout/footer';
+import NextTopLoader from 'nextjs-toploader';
 import {
   siteTitle,
   siteDesc,
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={customFonts.className}>
+        <NextTopLoader showSpinner={false} shadow="" />
         <Header />
         {children}
         <Footer />
