@@ -5,6 +5,10 @@
   --body-link-hover: #367db0;
 }
 
+header {
+  border-bottom: 1px solid var(--body-color);
+}
+
 body {
   min-height: 100vh;
   margin: 0 0.5rem;
@@ -15,13 +19,14 @@ body {
 }
 
 main {
-  margin: 1rem 0;
+  margin: 0.5rem 0 2rem 0;
 }
 
 footer {
   text-align: center;
   margin-top: auto;
   padding: 0.5rem 0;
+  border-top: 1px solid var(--body-color);
 }
 
 a {
@@ -36,6 +41,7 @@ a:hover {
 
 h1 {
   font-size: 1.4rem;
+  margin: 0.5rem 0;
 }
 
 .active {

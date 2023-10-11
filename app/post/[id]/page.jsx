@@ -69,6 +69,11 @@ export default async function DetailPost({ params }) {
       />
       <h1>{post?.title}</h1>
       <p>{post?.content}</p>
+      <p className="time-post">
+        {new Date().getFullYear()}-{new Date().getMonth()}-{new Date().getDay()}{' '}
+        {new Date().getHours()}:{new Date().getMinutes()}:
+        {new Date().getSeconds()}
+      </p>
     </main>
   );
 }
